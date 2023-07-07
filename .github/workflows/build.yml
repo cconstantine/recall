@@ -47,6 +47,13 @@ jobs:
       - name: Setup Terraform CLI
         uses: hashicorp/setup-terraform@v2.0.2
 
+      - name: install-aws-cli
+        uses: unfor19/install-aws-cli-action@v1
+
+      - name: install eks config
+        run: |
+          aws eks --region us-west-2 update-kubeconfig --name recall
+      
       - name: Deploy with terraform
         run: |
           ./deploy.sh
