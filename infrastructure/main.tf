@@ -28,7 +28,7 @@ resource "helm_release" "alb_controller" {
   repository = "https://aws.github.io/eks-charts"
   chart      = "aws-load-balancer-controller"
 
-  timeout = 600
+  timeout = 1200
   set {
     name  = "region"
     value = "us-west-2"
