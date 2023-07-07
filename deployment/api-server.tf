@@ -42,9 +42,9 @@ resource "kubernetes_cluster_role_binding" "api-server" {
 
 resource "kubernetes_deployment" "api-server" {
   timeouts {
-    create = "1m"
-    delete = "1m"
-    update = "1m"
+    create = "5m"
+    delete = "5m"
+    update = "5m"
   }
   metadata {
     name = "api-server"
