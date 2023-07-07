@@ -17,7 +17,7 @@ jobs:
   depoy_to_aws:
     name: Deploy
     runs-on: ubuntu-latest
-    environment: asdfasdf
+    environment: aws
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
