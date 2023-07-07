@@ -8,11 +8,11 @@ terraform {
 
   backend "kubernetes" {
     secret_suffix = "recallstate"
-    config_path   = "~/.kube/homelab-config2"
+    config_path   = "~/.kube/config"
   }
 }
 
 provider "kubernetes" {
-  config_path    = "~/.kube/homelab-config2"
-  config_context = "default"
+  config_path    = "~/.kube/config"
+  # config_context = "default"
 }

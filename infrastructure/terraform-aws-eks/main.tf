@@ -52,20 +52,11 @@ module "eks" {
   fargate_profiles = merge(
     {
       example = {
-        name = "example"
+        name = "default"
         selectors = [
           {
-            namespace = "backend"
-            labels = {
-              Application = "backend"
-            }
+            namespace = "recall"
           },
-          {
-            namespace = "app-*"
-            labels = {
-              Application = "app-wildcard"
-            }
-          }
         ]
 
         # Using specific subnets instead of the subnets supplied for the cluster itself

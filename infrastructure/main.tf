@@ -21,3 +21,26 @@ output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = module.eks.cluster_name
 }
+
+resource "helm_release" "alb_controller" {
+  name       = "aws-load-balancer"
+
+  repository = "https://aws.github.io/eks-charts"
+  chart      = "aws-load-balancer-controller"
+
+  timeout = 600
+  set {
+    name  = "region"
+    value = "us-west-2"
+  }
+
+  set {
+    name = "vpcId"
+    value = module.eks.vpc_id
+  }
+  
+  set {
+    name = "clusterName"
+    value = "recall"
+  }
+}

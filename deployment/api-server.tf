@@ -65,10 +65,10 @@ resource "kubernetes_deployment" "api-server" {
         }
       }
       spec {
-        # toleration {
-        #     key = "eks.amazonaws.com/compute-type"
-        #     value = "fargate"
-        # }
+        toleration {
+            key = "eks.amazonaws.com/compute-type"
+            value = "fargate"
+        }
         service_account_name = kubernetes_service_account.api-server.metadata.0.name
         container {
           image = var.docker_image
@@ -127,6 +127,10 @@ resource "kubernetes_ingress_v1" "api-server" {
   metadata {
     name      = "api-server-ingress"
     namespace = kubernetes_namespace.recall.metadata.0.name
+    annotations = {
+      "alb.ingress.kubernetes.io/scheme": "internet-facing"
+      "kubernetes.io/ingress.class": "alb"
+    }
   }
 
   spec {

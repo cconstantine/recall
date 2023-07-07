@@ -9,12 +9,12 @@ We have provided two python environments with the following functionality:
 
 You will need to build all the necessary components to provision and deploy the cluster and the service running on it. We expect the following characteristics of the solution you provide:
 
- [] The API endpoint should always remain available, regardless of the number of jobs in the queue.
- [] The underlying compute nodes should be elastic and the compute capacity must tightly fit the actual load on the cluster. We do not want to see massively over-provisioned nodes.
+ [x] The API endpoint should always remain available, regardless of the number of jobs in the queue.
+ [X] The underlying compute nodes should be elastic and the compute capacity must tightly fit the actual load on the cluster. We do not want to see massively over-provisioned nodes.
  [] The kubernetes stack must be hosted on AWS. You can use 3rd party tools for anything outside of the main cluster, including provisioning and deployment.
  [] Deployment of the stack and code is to be automated, using the CI/CD platform of your choice.
  [] It must be a simple task to deploy your stack on another AWS account or region.
- [] There must be a way to view and search stdout/err logs from active and terminated pods in the cluster.
+ [X] There must be a way to view and search stdout/err logs from active and terminated pods in the cluster.
 
 In order to assess the scaling behaviour of the infrastructure you will need to configure monitoring for nodes in your cluster. In this case we expect the following metrics:
  [] CPU-utilisation for all active nodes in the cluster
@@ -24,3 +24,6 @@ In order to assess the scaling behaviour of the infrastructure you will need to 
 You will be assessed on the quality of your solution according to the prior criteria, with a particular focus on the scaling behaviour of your cluster.
 
 All code and scripts must be put in a public GitHub repository. Include a README.md with instructions for provisioning and any other information you feel is relevant. 
+
+
+* Created new access key pair.  Added to environment

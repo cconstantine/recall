@@ -43,3 +43,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Setup Terraform CLI
+        uses: hashicorp/setup-terraform@v2.0.2
+
+      - name: Deploy with terraform
+        run: |
+          ./deploy.sh
