@@ -114,6 +114,7 @@ resource "kubernetes_service" "api-server" {
     namespace = kubernetes_namespace.recall.metadata.0.name
   }
   spec {
+    type = "LoadBalancer"
     selector = {
       name = "api-server"
     }
